@@ -47,7 +47,7 @@
     const x = cv.getContext('2d');
     const card = panel.closest('.card') || panel;
     let W = 0, H = 0, dpr = 1, pics = null, t0 = performance.now(), running = false, cycles = 0, ptr = null, raf = 0;
-    const accent = css(document.documentElement, '--p-accent', '#5ab9fc');
+    const accent = css(document.documentElement, '--p-accent', '#39e991');
 
     function size() {
       const r = panel.getBoundingClientRect(); dpr = Math.min(devicePixelRatio || 1, 2);
@@ -122,13 +122,13 @@
         x.strokeStyle = 'rgba(37,48,58,.25)'; x.setLineDash([3, 4]); x.beginPath(); x.moveTo(xs(split - 1), mainY0); x.lineTo(xs(split - 1), mainY1); x.stroke(); x.setLineDash([]);
         const end = split - 1 + Math.round((N - split) * fEnd);
         if (end > split - 1) {
-          x.fillStyle = 'rgba(63,106,146,.16)'; x.beginPath();
+          x.fillStyle = 'rgba(14,159,110,.16)'; x.beginPath();
           for (let i = split - 1; i <= end; i++) { const s = 0.08 + (i - split) / N * 0.9; const y = ys(fc(i) + s); i === split - 1 ? x.moveTo(xs(i), y) : x.lineTo(xs(i), y); }
           for (let i = end; i >= split - 1; i--) { const s = 0.08 + (i - split) / N * 0.9; x.lineTo(xs(i), ys(fc(i) - s)); }
           x.closePath(); x.fill();
-          x.strokeStyle = '#2f7fc1'; x.lineWidth = 2; x.beginPath();
+          x.strokeStyle = '#0e9f6e'; x.lineWidth = 2; x.beginPath();
           for (let i = split - 1; i <= end; i++) { i === split - 1 ? x.moveTo(xs(i), ys(all[i])) : x.lineTo(xs(i), ys(fc(i))); } x.stroke();
-          x.fillStyle = '#2f7fc1'; x.beginPath(); x.arc(xs(end), ys(fc(end)), 3.5, 0, Math.PI * 2); x.fill();
+          x.fillStyle = '#0e9f6e'; x.beginPath(); x.arc(xs(end), ys(fc(end)), 3.5, 0, Math.PI * 2); x.fill();
         }
         x.fillStyle = muted; x.fillText('Series', X0, mainY0); x.textAlign = 'right'; x.fillText('Forecast', X1, mainY0); x.textAlign = 'left';
         x.globalAlpha = 1;
@@ -178,6 +178,6 @@
     card.addEventListener('pointerleave', () => { ptr = null; t0 = now(); });
   }
 
-  const go = () => document.querySelectorAll('[data-play]').forEach(mount);
+  const go = () => document.querySelectorAll('[data-play]:not([data-play="fed"])').forEach(mount);
   document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', go, { once: true }) : go();
 })();
