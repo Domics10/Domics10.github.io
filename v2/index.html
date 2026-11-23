@@ -64,6 +64,11 @@
 @media (max-width: 639px) { .ly-piece--main .d-row:nth-child(n+2) { display: none; } }
 .hero__art .ui-pause:focus-visible { outline-color: var(--p-bg); }
 body { font-synthesis: none; }
+/* the hero's pill, as on the first version: one line above the h1 with a green dot */
+.hero-pill { display: flex; align-items: center; gap: 10px; margin: 0 0 var(--s-5); padding: 0; font: 400 13px/1.4 var(--font-mono); color: var(--muted); }
+.hero-pill__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--p-accent); box-shadow: 0 0 0 0 color-mix(in oklab, var(--p-accent) 60%, transparent); animation: pill-pulse 2.4s ease-out infinite; }
+@keyframes pill-pulse { 70% { box-shadow: 0 0 0 9px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+@media (prefers-reduced-motion: reduce) { .hero-pill__dot { animation: none; } }
 /* the footer: a dark green ground that grows out of the page's black, so the page ends without a jump */
 .contact-cards { margin-top: clamp(var(--s-5), 5vh, var(--s-8)); }
 .contact-cards > .card { display: flex; flex-direction: column; justify-content: space-between; gap: var(--s-4); min-height: clamp(104px, 24vh - 60px, 200px); background: color-mix(in oklab, var(--ground-surface) 70%, transparent); }
@@ -148,6 +153,7 @@ body { font-synthesis: none; }
   <section class="hero hero--collage" data-enter aria-labelledby="hero-h">
     <div class="wrap"><div class="hero-text grid hero__grid">
       <div class="hero__text span-5">
+        <p class="hero-pill"><span class="hero-pill__dot" aria-hidden="true"></span>Based in Italy (open to relocation)</p>
         <h1 id="hero-h">Domenico A. Izzo<span class="hero__role">Computer Engineer</span></h1>
         <p class="hero__lead">Computer Engineering, University of Salerno.<br>Machine learning, deep learning, DevOps.</p>
         <div class="btn-row"><a class="btn btn--primary" href="#projects">View projects<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a><a class="btn btn--secondary" href="https://github.com/Domics10" target="_blank" rel="noopener">GitHub</a></div>
@@ -186,7 +192,7 @@ body { font-synthesis: none; }
   <section class="section statement" id="about" data-moment="word-highlight" aria-label="About">
     <div class="wrap">
       <p class="t-label">About</p>
-      <p class="mo-wh__text">I attended the Polytechnic University of Marche, where I worked on data analysis and deep learning projects, in the field of <strong>Time Series Analysis</strong>.</p>
+      <p class="mo-wh__text">I attended the Polytechnic University of Marche, where I worked on data analysis and deep learning projects, in the field of <strong>Time Series Analysis</strong>. Background in AI: test developer, then AI model developer, now junior DevOps engineer.</p>
     </div>
   </section>
 
