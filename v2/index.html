@@ -65,9 +65,11 @@
 .hero__art .ui-pause:focus-visible { outline-color: var(--p-bg); }
 body { font-synthesis: none; }
 /* the footer: a dark green ground that grows out of the page's black, so the page ends without a jump */
-.contact-cards { margin-top: var(--s-8); }
-.contact-cards > .card { display: flex; flex-direction: column; justify-content: space-between; gap: var(--s-6); min-height: 200px; background: color-mix(in oklab, var(--ground-surface) 70%, transparent); }
-.contact-cards__name { font: var(--display-weight) clamp(40px, 5vw, 72px)/1 var(--font-display); letter-spacing: var(--display-tracking); }
+.contact-cards { margin-top: clamp(var(--s-5), 5vh, var(--s-8)); }
+.contact-cards > .card { display: flex; flex-direction: column; justify-content: space-between; gap: var(--s-4); min-height: clamp(104px, 24vh - 60px, 200px); background: color-mix(in oklab, var(--ground-surface) 70%, transparent); }
+.contact-cards__name { font: var(--display-weight) clamp(32px, min(5vw, 7vh), 72px)/1 var(--font-display); letter-spacing: var(--display-tracking); }
+/* the footer grows rather than let the cards run into the links on a short screen */
+#contact.closing { height: auto; min-height: calc(var(--h, 1) * 100svh); }
 .contact-cards__line { color: var(--muted); }
 @media (max-width: 639px) { .contact-cards > .card { min-height: 120px; } }
 #contact.footer--statement {
