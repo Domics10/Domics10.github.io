@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Domenico A. Izzo: computer engineer, machine learning and DevOps</title>
-<meta name="description" content="Work by Domenico A. Izzo, including Real-SR, TSDecoder, a Google Play Store analysis, Stock Market Sentiment and a Springer paper on groundwater.">
+<title>Domenico A. Izzo: Computer Engineer</title>
+<meta name="description" content="Computer Engineer. Projects such as Real-SR, TSDecoder, ImageCrop, Google Play Store Analysis and Stock Market Sentiment.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Domenico A. Izzo: computer engineer, machine learning and DevOps">
-<meta property="og:description" content="Projects and a Springer paper by a computer engineering graduate from the University of Salerno.">
+<meta property="og:title" content="Domenico A. Izzo: Computer Engineer">
+<meta property="og:description" content="Computer Engineer. Projects and publications.">
 <meta property="og:image" content="share.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -68,8 +68,17 @@
 @media (max-width: 1023px) { .hero__art > .ly-piece--note { left: var(--s-4); bottom: var(--s-4); width: 270px; } }
 /* the project cards: one panel height for the group */
 #projects .panel { --p-h: 300px; }
-@media (max-width: 639px) { #projects .panel { --p-h: 176px; } }
-/* the paper: the timeline card */
+#projects .grid--three > .card { grid-column: span 4; }
+@media (min-width: 1024px) { #projects .grid--three > .card > p { min-height: calc(3lh); } }
+@media (max-width: 1023px) { #projects .grid--three > .card { grid-column: span 12; } }
+@media (max-width: 639px) { #projects .panel { --p-h: 168px; } #projects .grid--three > .card:not(:has([data-play])) > .panel { display: none; } }
+@media (max-width: 359px) { header.nav .nav__bar > .nav__actions { display: none; } }
+/* the playable panels (play.js): the canvas fills the panel */
+.panel[data-play] { cursor: crosshair; touch-action: pan-y; }
+.play__canvas { position: absolute; inset: 0; display: block; }
+.hero__role { display: block; margin-top: .2em; font-size: .5em; letter-spacing: -0.02em; color: var(--muted); }
+.pub__note { margin: 0; }
+/* the paper: the search card */
 #paper .panel { --p-h: 400px; }
 #paper .card--open > .panel { margin-top: 0; }
 @media (max-width: 639px) { #paper .panel { --p-h: 240px; } }
@@ -88,6 +97,7 @@
     <a class="skip-link" href="#top">Skip to content</a>
     <a class="nav__logo" href="#top"><span class="mark" data-mark="stack" aria-hidden="true"></span>Domenico A. Izzo</a>
     <nav class="nav__links" aria-label="Main">
+      <div class="nav__item"><a class="nav__link" href="#about">About</a></div>
       <div class="nav__item">
         <a class="nav__link" href="#projects">Projects <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="nav__menu">
@@ -96,6 +106,7 @@
               <p class="t-label">Deep learning</p>
               <a href="#projects">Real-SR<span>Ultrasound super-resolution</span></a>
               <a href="#projects">TSDecoder<span>Transformer for time series</span></a>
+              <a href="#projects">ImageCrop<span>Tiles for super-resolution</span></a>
             </div>
             <div class="menu-col span-3">
               <p class="t-label">Data</p>
@@ -103,14 +114,13 @@
               <a href="#projects">Market sentiment<span>Text classification with BERT</span></a>
             </div>
             <div class="menu-col span-3 start-10">
-              <p class="t-label">Research</p>
-              <a href="#paper">Groundwater paper<span>Springer, 2023</span></a>
+              <p class="t-label">Publications</p>
+              <a href="#paper">Groundwater level forecasting<span>Gorgovivo spring</span></a>
             </div>
           </div>
         </div>
       </div>
-      <div class="nav__item"><a class="nav__link" href="#about">About</a></div>
-      <div class="nav__item"><a class="nav__link" href="#paper">Paper</a></div>
+      <div class="nav__item"><a class="nav__link" href="#paper">Publications</a></div>
       <div class="nav__item"><a class="nav__link" href="#contact">Contact</a></div>
     </nav>
     <div class="nav__actions">
@@ -126,12 +136,11 @@
   <section class="hero hero--collage" data-enter aria-labelledby="hero-h">
     <div class="wrap"><div class="hero-text grid hero__grid">
       <div class="hero__text span-5">
-        <h1 id="hero-h">Domenico A. Izzo, computer engineer</h1>
-        <p class="hero__lead">Computer Engineering graduate from the University of Salerno. Machine learning, deep learning and DevOps, with one Springer paper on groundwater level prediction.</p>
-        <div class="btn-row"><a class="btn btn--primary" href="https://www.linkedin.com/in/domenico-a-izzo-b44796218" target="_blank" rel="noopener">Contact me<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a><a class="btn btn--secondary" href="#projects">See the projects</a></div>
-        <p class="hero__proof">Five public projects on GitHub, 2022 to 2024.</p>
+        <h1 id="hero-h">Domenico A. Izzo<span class="hero__role">Computer Engineer</span></h1>
+        <p class="hero__lead">Computer Engineering, University of Salerno.<br>Machine learning, deep learning, DevOps.</p>
+        <div class="btn-row"><a class="btn btn--primary" href="#projects">View projects<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a><a class="btn btn--secondary" href="https://github.com/Domics10" target="_blank" rel="noopener">GitHub</a></div>
       </div>
-      <div class="hero__art span-6 start-7" data-fx="grain-gradient" data-fx-seed="7" data-fx-palette='{"bg":"#c6d3df","surface":"#d6e0e9","ink":"#25303a","accent":"#3f6a92"}' role="img" aria-label="A list of Domenico's GitHub repositories, with the Springer paper beside it">
+      <div class="hero__art span-6 start-7" data-fx="grain-gradient" data-fx-seed="7" data-fx-palette='{"bg":"#c6d3df","surface":"#d6e0e9","ink":"#25303a","accent":"#3f6a92"}' role="img" aria-label="A list of Domenico's GitHub repositories and the topics they cover">
         <div class="ly-piece ly-piece--main d-win" aria-hidden="true">
           <div class="d-win__bar"><span class="d-win__dots"><i></i><i></i><i></i></span><span>github.com/Domics10 · Repositories</span></div>
           <div class="d-win__body">
@@ -153,83 +162,45 @@
           </div>
         </div>
         <div class="ly-piece ly-piece--note d-card" aria-hidden="true" data-ly-steps="700">
-          <div class="d-card__row"><h5>Springer, 2023</h5><span class="d-chip" data-step data-step-at="4">Published</span></div>
-          <div class="d-note__line" data-step><i>✓</i><span><b>Groundwater</b> level prediction</span></div>
-          <div class="d-note__line" data-step><i>✓</i><span><b>Gorgovivo</b> spring case study</span></div>
-          <div class="d-note__line" data-step><i>✓</i><span>Master's internship, <b>UNIVPM</b></span></div>
+          <div class="d-card__row"><h5>Topics</h5><span class="d-chip" data-step data-step-at="4">3</span></div>
+          <div class="d-note__line" data-step><i>✓</i><span><b>Time series</b> forecasting</span></div>
+          <div class="d-note__line" data-step><i>✓</i><span><b>Image</b> super-resolution</span></div>
+          <div class="d-note__line" data-step><i>✓</i><span><b>Data</b> analysis</span></div>
         </div>
       </div>
     </div></div>
+  </section>
+
+  <section class="section statement" id="about" data-moment="word-highlight" aria-label="About">
+    <div class="wrap">
+      <p class="t-label">About</p>
+      <p class="mo-wh__text">I attended the Polytechnic University of Marche, where I worked on data analysis and deep learning projects, in the field of <strong>Time Series Analysis</strong>.</p>
+    </div>
   </section>
 
   <section class="section g2" id="projects" aria-labelledby="projects-h">
     <div class="wrap">
       <div class="group">
         <div class="section-head">
-          <h2 id="projects-h">Projects. <span class="muted">Code and notebooks on GitHub.</span></h2>
+          <h2 id="projects-h">Projects. <span class="muted">Public repositories on GitHub.</span></h2>
         </div>
         <div class="grid">
           <a class="card card--row card--open span-6" href="https://github.com/Domics10/Real-SR" target="_blank" rel="noopener">
-            <h3>Real-SR for ultrasound images</h3>
-            <p>Real-SR adapted to the HC18 fetal ultrasound set: KernelGAN kernels, noise injection, and ImageCrop for large images.</p>
-            <div class="panel">
-              <div class="stage"><div class="at-rise fit" style="--fit-max:420px;--ax:max(24px, 50% - 210px);--ay:36px;--ay-sm:16px" data-ui-loop>
-                <div class="ui ui-panel ui-pipe" data-ui="pipeline-board">
-                  <div class="ui-pipe__head">
-                    <svg class="ui-icon ui-pipe__branch" viewBox="0 0 16 16" aria-hidden="true"><circle cx="4.5" cy="3.5" r="1.5"/><circle cx="4.5" cy="12.5" r="1.5"/><circle cx="11.5" cy="5" r="1.5"/><path d="M4.5 5v6M11.5 6.5c0 2.6-2.2 3.6-5.6 4.6"/></svg>
-                    <span class="ui-pipe__repo">Domics10/Real-SR</span><i class="ui-pipe__slash">/</i><code class="ui-pipe__ref">master</code>
-                    <span class="ui-spacer"></span>
-                    <span class="ui-chip ui-chip--ink ui-chip--live ui-pipe__chip" data-pipe-chip data-done="Done">Running</span>
-                  </div>
-                  <div class="ui-pipe__commit">
-                    <span class="ui-avatar" data-tone="4">DI</span>
-                    <span class="ui-pipe__msg">HC18, scale ×4</span>
-                    <code class="ui-pipe__sha">docker</code>
-                    <button class="ui-btn ui-btn--ghost ui-btn--sm ui-pipe__btn" type="button" tabindex="-1" data-pipe-btn data-done="Re-run">Cancel</button>
-                  </div>
-                  <ol class="ui-pipe__steps">
-                    <li class="ui-pipe__step is-done" data-step="kernels"><span class="ui-pipe__ico"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-pipe__name"><span class="ui-pipe__tool" aria-hidden="true"><img src="assets/ui/icons/docker.svg" alt=""></span><span class="ui-pipe__nm">Kernels</span></span><code class="ui-pipe__cmd">MODE=kc</code><span class="ui-pipe__time" data-time>Done</span><span class="ui-pipe__bar"><i></i></span></li>
-                    <li class="ui-pipe__step is-done" data-step="noise"><span class="ui-pipe__ico"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-pipe__name"><span class="ui-pipe__tool" aria-hidden="true"><img src="assets/ui/icons/docker.svg" alt=""></span><span class="ui-pipe__nm">Noise</span></span><code class="ui-pipe__cmd">MODE=na</code><span class="ui-pipe__time" data-time>Done</span><span class="ui-pipe__bar"><i></i></span></li>
-                    <li class="ui-pipe__step is-run" data-step="train" style="--k:0.6"><span class="ui-pipe__ico"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-pipe__name"><span class="ui-pipe__tool" aria-hidden="true"><img src="assets/ui/icons/docker.svg" alt=""></span><span class="ui-pipe__nm">Train</span></span><code class="ui-pipe__cmd">MODE=tr</code><span class="ui-pipe__time" data-time="Done">Running</span><span class="ui-pipe__bar"><i></i></span></li>
-                    <li class="ui-pipe__step" data-step="test"><span class="ui-pipe__ico"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-pipe__name"><span class="ui-pipe__tool" aria-hidden="true"><img src="assets/ui/icons/docker.svg" alt=""></span><span class="ui-pipe__nm">Test</span></span><code class="ui-pipe__cmd">MODE=te</code><span class="ui-pipe__time" data-time="Done">Queued</span><span class="ui-pipe__bar"><i></i></span></li>
-                  </ol>
-                  <div class="ui-pipe__log" aria-hidden="true">
-                    <span class="ui-pipe__line" data-step="kernels"><b>$</b>python create_kernel_dataset.py</span>
-                    <span class="ui-pipe__line" data-step="noise"><b>$</b>python collect_noise.py</span>
-                    <span class="ui-pipe__line is-on" data-step="train"><b>$</b>python train.py -opt train_kernel_noise.yml</span>
-                    <span class="ui-pipe__line" data-step="test"><b>$</b>python test.py -opt test_dped.yml</span>
-                  </div>
-                </div>
-              </div></div>
-            </div>
+            <h3>Real-SR · Ultrasound</h3>
+            <p>Super-resolution of fetal ultrasound images (HC18 dataset) by adapting Real-SR: degradation kernel estimation with KernelGAN, noise injection and fine-tuning of an ESRGAN/RRDB ×4 network.</p>
+            <div class="panel" data-play="sr" role="img" aria-label="A blurred ultrasound of a fetal head; the area under the pointer turns sharp"></div>
           </a>
           <a class="card card--row card--open span-6" href="https://github.com/Domics10/TSDecoder" target="_blank" rel="noopener">
-            <h3>TSDecoder for time series</h3>
-            <p>A decoder-only Transformer written from scratch, with training, saved models and forecast plots. Runs in Docker.</p>
-            <div class="panel">
-              <div class="stage stage--fade-br"><div class="at-corner wide" style="--w:680px">
-                <div class="ui ui-files" data-ui="files">
-                  <div class="ui-files__status"><span class="ui-dot"></span><span>Domics10/TSDecoder</span></div>
-                  <ul class="ui-files__grid">
-                    <li class="ui-file is-done"><span class="ui-file__icon"><svg class="ui-file__glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.25 2.75h8L18.75 7.25v14H6.25z"/><path d="M14 2.75v4.75h4.75M9 12.5h6.5M9 15.5h6.5M9 18.5h4"/></svg></span><span class="ui-file__name">main.py</span><span class="ui-file__kind">Python</span><span class="ui-file__bar"><i></i></span><span class="ui-file__check"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.2 2.3 2.3 4.7-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></li>
-                    <li class="ui-file is-done"><span class="ui-file__icon"><svg class="ui-file__glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h6l2 2h10v11H3z"/></svg></span><span class="ui-file__name">model/</span><span class="ui-file__kind">Folder</span><span class="ui-file__bar"><i></i></span><span class="ui-file__check"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.2 2.3 2.3 4.7-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></li>
-                    <li class="ui-file is-done"><span class="ui-file__icon"><svg class="ui-file__glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h6l2 2h10v11H3z"/></svg></span><span class="ui-file__name">utils/</span><span class="ui-file__kind">Folder</span><span class="ui-file__bar"><i></i></span><span class="ui-file__check"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.2 2.3 2.3 4.7-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></li>
-                    <li class="ui-file is-done"><span class="ui-file__icon"><svg class="ui-file__glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h6l2 2h10v11H3z"/></svg></span><span class="ui-file__name">plots/</span><span class="ui-file__kind">Forecasts</span><span class="ui-file__bar"><i></i></span><span class="ui-file__check"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.2 2.3 2.3 4.7-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></li>
-                    <li class="ui-file is-done"><span class="ui-file__icon"><img src="assets/ui/icons/docker.svg" alt=""></span><span class="ui-file__name">Dockerfile</span><span class="ui-file__kind">Docker</span><span class="ui-file__bar"><i></i></span><span class="ui-file__check"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.2 2.3 2.3 4.7-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></li>
-                    <li class="ui-file is-done"><span class="ui-file__icon"><svg class="ui-file__glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.25 2.75h8L18.75 7.25v14H6.25z"/><path d="M14 2.75v4.75h4.75M9 12.5h6.5M9 15.5h6.5M9 18.5h4"/></svg></span><span class="ui-file__name">requirements.txt</span><span class="ui-file__kind">Text</span><span class="ui-file__bar"><i></i></span><span class="ui-file__check"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.2 2.3 2.3 4.7-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></li>
-                    <li class="ui-file is-done"><span class="ui-file__icon"><svg class="ui-file__glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h6l2 2h10v11H3z"/></svg></span><span class="ui-file__name">data/</span><span class="ui-file__kind">Folder</span><span class="ui-file__bar"><i></i></span><span class="ui-file__check"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.2 2.3 2.3 4.7-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></li>
-                    <li class="ui-file is-done"><span class="ui-file__icon"><svg class="ui-file__glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h6l2 2h10v11H3z"/></svg></span><span class="ui-file__name">saved_models/</span><span class="ui-file__kind">Folder</span><span class="ui-file__bar"><i></i></span><span class="ui-file__check"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.2 2.3 2.3 4.7-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></li>
-                  </ul>
-                </div>
-              </div></div>
-            </div>
+            <h3>TSDecoder</h3>
+            <p>A decoder-only Transformer built from scratch for time series forecasting: masked self-attention, training, checkpoints and forecast plots. Runs in Docker.</p>
+            <div class="panel" data-play="ts" role="img" aria-label="Trend, seasonality, sub-seasonality and noise add up to one series; moving the pointer extends the forecast"></div>
           </a>
         </div>
       </div>
-      <div class="grid">
-          <a class="card card--row card--open span-6" href="https://github.com/Domics10/Data-Analysis-Project" target="_blank" rel="noopener">
-            <h3>Google Play Store analysis</h3>
-            <p>A university project in six notebooks, from data cleaning to autoregression, with a written report.</p>
+      <div class="grid grid--three">
+          <a class="card card--row card--open" href="https://github.com/Domics10/Data-Analysis-Project" target="_blank" rel="noopener">
+            <h3>Google Play Store Analysis</h3>
+            <p>Analysis of the Google Play Store dataset: cleaning, visualization, regression, classification, clustering and autoregression. University project, with PDF report.</p>
             <div class="panel">
               <div class="stage"><div class="at-rise fit" style="--fit-max:340px;--ax:max(24px, 50% - 170px);--ay:40px;--ay-sm:16px">
                 <div class="ui ui-panel ui-checks" data-ui="checklist">
@@ -251,9 +222,9 @@
               </div></div>
             </div>
           </a>
-          <a class="card card--row card--open span-6" href="https://github.com/Domics10/Sentimental-Analysis" target="_blank" rel="noopener">
-            <h3>Stock market sentiment with BERT</h3>
-            <p>Sentiment analysis of texts about the 2022 stock market crash, in one notebook with a written report.</p>
+          <a class="card card--row card--open" href="https://github.com/Domics10/Sentimental-Analysis" target="_blank" rel="noopener">
+            <h3>Stock Market Sentiment</h3>
+            <p>Sentiment analysis of text about the 2022 stock market crash with BERT. Notebook and report.</p>
             <div class="panel">
               <div class="stage stage--fade-br"><div class="at-corner wide" style="--w:680px">
                 <div class="ui ui-files" data-ui="files">
@@ -270,26 +241,26 @@
               </div></div>
             </div>
           </a>
+          <a class="card card--row card--open" href="https://github.com/Domics10/ImageCrop" target="_blank" rel="noopener">
+            <h3>ImageCrop</h3>
+            <p>Splits an image into equal tiles (for example 2×2), passes each tile through the super-resolution network, then puts the image back together.</p>
+            <div class="panel" data-play="tiles" role="img" aria-label="An ultrasound split into tiles; each tile turns sharp in turn, then the picture is rejoined"></div>
+          </a>
       </div>
     </div>
   </section>
 
-  <section class="section statement" id="about" data-moment="word-highlight" aria-label="About">
-    <div class="wrap">
-      <p class="t-label">About</p>
-      <p class="mo-wh__text">I studied computer engineering in Salerno and forecast groundwater levels for my master's internship in Ancona. Today I work in <strong>DevOps</strong>, on CI/CD pipelines and deployments.</p>
-    </div>
-  </section>
 
   <section class="section" id="paper" aria-labelledby="paper-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="paper-h">Groundwater level prediction. <span class="muted">Springer, 2023.</span></h2>
+        <h2 id="paper-h">Publications</h2>
       </div>
       <div class="grid grid--top fill">
         <div class="span-6 stack-4">
           <p class="t-card">An AI-Driven Prototype for Groundwater Level Prediction: Exploring the Gorgovivo Spring Case Study</p>
-          <p>A prototype that predicts groundwater levels at the Gorgovivo spring, written during my master's internship at Università Politecnica delle Marche. The code belongs to the company and stays private.</p>
+          <p>Groundwater level forecasting for the Gorgovivo spring. Master's internship, Università Politecnica delle Marche.</p>
+          <p class="pub__note t-small muted">The actual code is under NDA.</p>
           <p><a class="link" href="https://doi.org/10.1007/978-3-031-43153-1_35" target="_blank" rel="noopener">Read the paper on Springer</a></p>
         </div>
         <div class="card card--open m-nolift span-6 start-7">
@@ -321,7 +292,7 @@
   <div class="wrap">
     <div class="closing__cta close--word">
       <div class="section-head--split">
-        <div><h2 id="close-h">Write to me on LinkedIn</h2><p class="t-lead">The code for every project above is on GitHub.</p></div>
+        <div><h2 id="close-h">Contact</h2><p class="t-lead">GitHub and LinkedIn.</p></div>
         <a class="btn btn--primary" href="https://www.linkedin.com/in/domenico-a-izzo-b44796218" target="_blank" rel="noopener">Contact me<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
       </div>
       <p class="close__word" aria-hidden="true">Domenico</p>
@@ -333,7 +304,7 @@
           <p class="footer__lede">Computer engineer. Machine learning, deep learning, DevOps.</p>
         </div>
         <div class="span-2 start-7 footer__col"><h3>Projects</h3><ul><li><a href="https://github.com/Domics10/Real-SR">Real-SR</a></li><li><a href="https://github.com/Domics10/TSDecoder">TSDecoder</a></li><li><a href="https://github.com/Domics10/ImageCrop">ImageCrop</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Page</h3><ul><li><a href="#projects">Projects</a></li><li><a href="#about">About</a></li><li><a href="#paper">Paper</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Page</h3><ul><li><a href="#projects">Projects</a></li><li><a href="#about">About</a></li><li><a href="#paper">Publications</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Elsewhere</h3><ul><li><a href="https://github.com/Domics10">GitHub</a></li><li><a href="https://www.linkedin.com/in/domenico-a-izzo-b44796218">LinkedIn</a></li></ul></div>
       </div>
       <div class="footer__legal">
@@ -345,10 +316,8 @@
   </div>
 </footer>
 
-<nav class="actionbar" aria-label="Quick actions">
-  <a class="btn btn--primary" href="https://www.linkedin.com/in/domenico-a-izzo-b44796218" target="_blank" rel="noopener">Contact me</a>
-</nav>
 
+<script src="play.js" defer></script>
 <script type="module" src="assets/system.js"></script>
 <script type="module" src="assets/motion/motion.js"></script>
 <script type="module" src="assets/layout/layout.js"></script>
